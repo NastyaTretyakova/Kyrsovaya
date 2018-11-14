@@ -1,0 +1,122 @@
+﻿<Window x:Class="Kyrsovaya.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Kyrsovaya"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+       
+        <Grid Grid.Row="0"  >
+            <Button Margin="10" HorizontalAlignment="Left" Content="Статистика"/>
+        </Grid>
+        <Grid ShowGridLines="True" Grid.Row="1" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <TextBox Margin="30,20"  Grid.Column="0" Width="auto" >
+            </TextBox>
+            <Button  Margin="30" Grid.Column="1" Content="Поиск" Width="100" Click="Button_Click"></Button>
+        </Grid>
+        <Grid Margin="5" Grid.Row="2">
+            <ItemsControl>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Margin="0,0,5,5" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <system:String>2018 </system:String>
+                <system:String>2017</system:String>
+                <system:String>ItemsControl Item #3</system:String>
+                <system:String>ItemsControl Item #4</system:String>
+                <system:String>ItemsControl Item #5</system:String>
+            </ItemsControl>
+        </Grid>
+        <Grid Margin="5" Grid.Row="3">
+            <ItemsControl>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Margin="0,0,5,5" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <system:String>Rkfccbrf</system:String>
+                <system:String>2ghjj</system:String>
+                <system:String>ItemsControl Item #3</system:String>
+                <system:String>ItemsControl Item #4</system:String>
+                <system:String>ItemsControl Item #5</system:String>
+            </ItemsControl>
+        </Grid>
+        <Grid Grid.Row="4">
+        <ItemsControl>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                        <UniformGrid Columns="2"/>
+                    </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <!--<Button  Content="{Binding}" Margin="0,0,5,5" />-->
+                        <Border Height="150" Margin="5" Background="GhostWhite" BorderBrush="DodgerBlue" BorderThickness="1,3,1,5">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" ></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="6*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <!--C:\Users\Настюшка\Desktop\Курсовая\Kyrsovaya\Kino.jpg-->
+                                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="C:\Users\Настюшка\Desktop\Курсовая\Kyrsovaya\Kino.jpg"/>
+                                    </Image.Source>
+                                </Image>
+                                <Label Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="13" Content="{Binding}"></Label>
+                                
+                                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                    <Label FontStyle="Italic"   Content="Год"/>
+                                    <Label  FontStyle="Italic"  Content="Жанр"/>
+                                </StackPanel>
+                                
+                                <Label Grid.Column="1" Grid.Row="2">
+                                    <Label.Content>
+                                        <AccessText TextWrapping="Wrap" Text="Klhrljjjjjjjjjjjjjjjjjjjjjjjjjvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjcj  fjfjf r rigiughb  585895  gk ttyyyyyyyyyyyyyyyyyyy mekkkkkkkkkkkkkkkkkkkfhhhhhhhhhhhhhhh"/>
+                                    </Label.Content>
+                                </Label>
+
+                            </Grid>
+                            
+                        </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+                <system:String>Название</system:String>
+            <system:String>Год</system:String>
+            <system:String>ItemsControl Item #3</system:String>
+            <system:String>ItemsControl Item #4</system:String>
+            <system:String>ItemsControl Item #5</system:String>
+        </ItemsControl>
+            </Grid>
+    </Grid>
+</Window>
