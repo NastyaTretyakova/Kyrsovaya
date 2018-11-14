@@ -90,7 +90,7 @@
                                 <!--C:\Users\Настюшка\Desktop\Курсовая\Kyrsovaya\Kino.jpg-->
                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform">
                                     <Image.Source>
-                                        <BitmapImage UriSource="C:\Users\Настюшка\Desktop\Курсовая\Kyrsovaya\Kino.jpg"/>
+                                        <BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>
                                     </Image.Source>
                                 </Image>
                                 <Label Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="13" Content="{Binding}"></Label>
