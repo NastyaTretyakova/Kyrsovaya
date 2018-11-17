@@ -8,10 +8,16 @@ namespace Kyrsovaya
 {
     public class Films
     {
-        public string Name;
-        public string Genre;
-        public int Year;
-        public string Description;
-        public string ImagePath;
+        private string name;
+        private string genre;
+        private int year;
+        private string description;
+        private string imagePath;
+
+        public string Genre { get => genre; set => genre = value; }
+        public string Name { get => name; set => name = value; }
+        public int Year { get => year; set => year = value; }
+        public string Description { get => description; set => description = value; }
+        public string ImagePath { get => imagePath; set => imagePath = value; }
     }
 }

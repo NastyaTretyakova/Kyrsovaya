@@ -83,19 +83,21 @@
                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform">
                                     <Image.Source>
                                         <BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>
+                                        <BitmapImage UriSource="{Binding ImagePath, Converter={StaticResource ImageConverter}}"/>
+                                        <!--<BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>-->
                                     </Image.Source>
                                 </Image>
                                 <Label  Grid.Column="1" HorizontalAlignment="Center"
                                         FontWeight="Bold" FontSize="13" Content="{Binding Name}"></Label>
                                 
-                                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                                    <Label FontStyle="Italic"   Content="Год"/>
-                                    <Label  FontStyle="Italic"  Content="Жанр"/>
+                                <StackPanel   HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                    <Label FontStyle="Italic"  Content="{Binding Year}"/>
+                                    <Label  FontStyle="Italic"  Content="{Binding Genre}"/>
                                 </StackPanel>
                                 
                                 <Label Grid.Column="1" Grid.Row="2">
                                     <Label.Content>
-                                        <AccessText TextWrapping="Wrap" Text="Klhrljjjjjjjjjjjjjjjjjjjjjjjjjvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjcj  fjfjf r rigiughb  585895  gk ttyyyyyyyyyyyyyyyyyyy mekkkkkkkkkkkkkkkkkkkfhhhhhhhhhhhhhhh"/>
+                                        <AccessText TextWrapping="Wrap" Text="{Binding Description}"/>
                                     </Label.Content>
                                 </Label>
 

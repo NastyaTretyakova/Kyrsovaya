@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Films.cs" />
+    <Compile Include="ImageConverter.cs" />
     <Compile Include="Statistika.xaml.cs">
       <DependentUpon>Statistika.xaml</DependentUpon>
     </Compile>
