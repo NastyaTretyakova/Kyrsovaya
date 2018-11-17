@@ -48,7 +48,7 @@
             </ItemsControl>
         </Grid>
         <Grid Margin="5" Grid.Row="3">
-            <ItemsControl>
+            <ItemsControl ItemsSource="{Binding Genres}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -59,11 +59,7 @@
                         <Button Content="{Binding}" Margin="0,0,5,5" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-                <system:String>Rkfccbrf</system:String>
-                <system:String>2ghjj</system:String>
-                <system:String>ItemsControl Item #3</system:String>
-                <system:String>ItemsControl Item #4</system:String>
-                <system:String>ItemsControl Item #5</system:String>
+               
             </ItemsControl>
         </Grid>
         <Grid Grid.Row="4">
