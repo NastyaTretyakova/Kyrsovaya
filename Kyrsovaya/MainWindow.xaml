@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
        
         <Grid Grid.Row="0"  >
-            <Button Margin="10" HorizontalAlignment="Left" Content="Статистика"/>
+            <Button Margin="10" HorizontalAlignment="Left" Content="Статистика" Click="StatistikaOpenWindow"/>
         </Grid>
         <Grid ShowGridLines="True" Grid.Row="1" >
             <Grid.ColumnDefinitions >
@@ -87,7 +87,7 @@
                                     <RowDefinition Height="2*"></RowDefinition>
                                     <RowDefinition Height="6*"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <!--C:\Users\Настюшка\Desktop\Курсовая\Kyrsovaya\Kino.jpg-->
+                               
                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform">
                                     <Image.Source>
                                         <BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>
