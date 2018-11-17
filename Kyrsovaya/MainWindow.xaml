@@ -29,7 +29,7 @@
             <Button  Margin="30" Grid.Column="1" Content="Поиск" Width="100" Click="Button_Click"></Button>
         </Grid>
         <Grid Margin="5" Grid.Row="2">
-            <ItemsControl>
+            <ItemsControl ItemsSource="{Binding Years}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -40,11 +40,7 @@
                         <Button Content="{Binding}" Margin="0,0,5,5" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-                <system:String>2018 </system:String>
-                <system:String>2017</system:String>
-                <system:String>ItemsControl Item #3</system:String>
-                <system:String>ItemsControl Item #4</system:String>
-                <system:String>ItemsControl Item #5</system:String>
+                
             </ItemsControl>
         </Grid>
         <Grid Margin="5" Grid.Row="3">
@@ -63,7 +59,7 @@
             </ItemsControl>
         </Grid>
         <Grid Grid.Row="4">
-        <ItemsControl>
+            <ItemsControl ItemsSource="{Binding Catalog}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                         <UniformGrid Columns="2"/>
@@ -89,7 +85,8 @@
                                         <BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>
                                     </Image.Source>
                                 </Image>
-                                <Label Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="13" Content="{Binding}"></Label>
+                                <Label  Grid.Column="1" HorizontalAlignment="Center"
+                                        FontWeight="Bold" FontSize="13" Content="{Binding Name}"></Label>
                                 
                                 <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                                     <Label FontStyle="Italic"   Content="Год"/>
@@ -107,11 +104,7 @@
                         </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-                <system:String>Название</system:String>
-            <system:String>Год</system:String>
-            <system:String>ItemsControl Item #3</system:String>
-            <system:String>ItemsControl Item #4</system:String>
-            <system:String>ItemsControl Item #5</system:String>
+              
         </ItemsControl>
             </Grid>
     </Grid>
