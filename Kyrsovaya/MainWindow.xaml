@@ -93,7 +93,7 @@
                                 <Label  Grid.Column="1" HorizontalAlignment="Center"
                                         FontWeight="Bold" FontSize="13" Content="{Binding Name}"></Label>
                                 
-                                <StackPanel   HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                <StackPanel   HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                                     <Label FontStyle="Italic"  Content="{Binding Year}"/>
                                     
                                     <ItemsControl ItemsSource="{Binding Genre}">

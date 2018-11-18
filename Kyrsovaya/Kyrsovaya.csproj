@@ -54,11 +54,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ContentWindow.xaml.cs">
+      <DependentUpon>ContentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Films.cs" />
     <Compile Include="ImageConverter.cs" />
     <Compile Include="Statistika.xaml.cs">
       <DependentUpon>Statistika.xaml</DependentUpon>
     </Compile>
+    <Page Include="ContentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +116,7 @@
     <Content Include="Res\TheMeg.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Res\TheShawshankRedemption.jpg" />
     <Content Include="Res\Кино.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
