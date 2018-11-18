@@ -110,9 +110,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Res\ForrestGump.jpg" />
     <Content Include="Res\MissionImpossibleFallout.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Res\Schindler%27sList.jpg" />
+    <Resource Include="Res\TheGreenMile.jpg" />
     <Content Include="Res\TheMeg.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
