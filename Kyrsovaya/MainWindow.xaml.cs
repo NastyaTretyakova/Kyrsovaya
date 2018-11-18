@@ -38,6 +38,12 @@ namespace Kyrsovaya
             this.catalog.Add(new Films() { Name = "Зеленая миля", Genre = new List<string>(){ "фэнтези", "драма", "криминал", "детектив" }, Year = 1999, ImagePath = "Res\\TheGreenMile.jpg", Description = "Пол Эджкомб — начальник блока смертников в тюрьме «Холодная гора», каждый из узников которого однажды проходит «зеленую милю» по пути к месту казни. Пол повидал много заключённых и надзирателей за время работы. Однако гигант Джон Коффи, обвинённый в страшном преступлении, стал одним из самых необычных обитателей блока."});
              this.catalog.Add(new Films() { Name = "Список Шиндлера", Genre = new List<string>(){ "драма", "биография", "история" }, Year =1993 , ImagePath = "Res\\Schindler'sList.jpg", Description = "Фильм рассказывает реальную историю загадочного Оскара Шиндлера, члена нацистской партии, преуспевающего фабриканта, спасшего во время Второй мировой войны почти 1200 евреев." });
 
+            // string result = string.Join(", ", catalog.Select(f => f.Year));  //КАК ВАРИАНТ
+            //catalog = catalog.OrderBy(f => f.Year).ToList();
+            // string orderedResult = string.Join(", ", catalog.Select(f => f.Year));
+
+            Years.Sort();
+
             List <string> temp = new List<string>();
             this.catalog.ForEach(f => temp.AddRange(f.Genre.ToList()));
             //.ToList());   
