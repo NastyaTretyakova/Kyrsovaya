@@ -72,7 +72,6 @@ namespace Kyrsovaya
 
         public void UpadateSearch()
         {
-
             //this.Catalog.Add(Catalog.First());
             this.Catalog.Clear();
             var ff = catalogSourse.First();
@@ -86,11 +85,6 @@ namespace Kyrsovaya
             && (SelectedYears.Equals(string.Empty) | f.Year.ToString().Equals(SelectedYears))
 
             ).ToList().ForEach(c => Catalog.Add(c));
-        }
-
-        private void SeachButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.UpadateSearch();
         }
 
         private void StatistikaOpenWindow(object sender, RoutedEventArgs e)
@@ -118,7 +112,6 @@ namespace Kyrsovaya
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
-
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
@@ -174,6 +167,13 @@ namespace Kyrsovaya
             return memberExpression.Member.Name;
         }
 
+        private void SeachButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.UpadateSearch();
+            this.SelectedYears = string.Empty;
+            this.SelectedGenres = string.Empty;
+        }
+
         private void YearsCleanButton_Click(object sender, RoutedEventArgs e)
         {
             this.SelectedYears = string.Empty;
@@ -190,6 +190,8 @@ namespace Kyrsovaya
         {
             string name = (sender as Button).Content.ToString();
             this.SelectedYears = name;
+            this.SelectedGenres = string.Empty;
+            this.SearchText = string.Empty;
             this.UpadateSearch();
         }
 
@@ -197,6 +199,8 @@ namespace Kyrsovaya
         {
             string name = (sender as Button).Content as string;
             this.SelectedGenres = name;
+            this.SelectedYears = string.Empty;
+            this.SearchText = string.Empty;
             this.UpadateSearch();
         }
 

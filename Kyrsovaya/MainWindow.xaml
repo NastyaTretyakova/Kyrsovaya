@@ -68,6 +68,55 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="4">
+            <Grid Visibility="Hidden">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="6*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform" Source="{Binding ImagePath, Converter={StaticResource converter}}">
+                        <!--<Image.Source>
+                                        <BitmapImage UriSource="{Binding ImagePath, Converter={StaticResource ImageConverter}}"/>
+                                        -->
+                        <!--<BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>-->
+                        <!--
+                                    </Image.Source>-->
+                    </Image>
+                    <Label  Grid.Column="1" HorizontalAlignment="Center"
+                                        FontWeight="Bold" FontSize="13" Content="{Binding Name}"></Label>
+
+                    <StackPanel   HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                        <Label FontStyle="Italic"  Content="{Binding Year}"/>
+
+                        <ItemsControl ItemsSource="{Binding Genre}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label  FontStyle="Italic"  Content="{Binding}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <Label Grid.Column="1" Grid.Row="2">
+                        <Label.Content>
+                            <AccessText TextWrapping="Wrap" Text="{Binding Description}"/>
+                        </Label.Content>
+                    </Label>
+
+                </Grid>
+            </Grid>
             <ItemsControl ItemsSource="{Binding Catalog}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
