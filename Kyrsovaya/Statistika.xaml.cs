@@ -22,6 +22,7 @@ namespace Kyrsovaya
         public Statistika()
         {
             InitializeComponent();
+            //DataContext = TopList;
         }
     }
 }
