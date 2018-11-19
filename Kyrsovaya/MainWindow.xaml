@@ -96,7 +96,7 @@
                                         --><!--<BitmapImage UriSource="..\Kyrsovaya\Res\Кино.jpg"/>--><!--
                                     </Image.Source>-->
                                 </Image>
-                                <Label  Grid.Column="1" HorizontalAlignment="Center"
+                                <Label  Grid.Column="1" HorizontalAlignment="Center" MouseLeftButtonUp="OpenFilm"
                                         FontWeight="Bold" FontSize="13" Content="{Binding Name}"></Label>
                                 
                                 <StackPanel   HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">

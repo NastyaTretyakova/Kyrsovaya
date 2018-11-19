@@ -13,11 +13,13 @@ namespace Kyrsovaya
         private int year;
         private string description;
         private string imagePath;
+        private int viewCount = 0;
 
         public List<string> Genre { get => genre; set => genre = value; }
         public string Name { get => name; set => name = value; }
         public int Year { get => year; set => year = value; }
         public string Description { get => description; set => description = value; }
         public string ImagePath { get => imagePath; set => imagePath = value; }
+        public int ViewCount { get => viewCount; set => viewCount = value; }
     }
 }

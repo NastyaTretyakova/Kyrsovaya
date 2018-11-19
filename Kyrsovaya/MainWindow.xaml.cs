@@ -6,16 +6,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kyrsovaya
 {
@@ -24,7 +17,10 @@ namespace Kyrsovaya
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-       
+
+        //string topList = string.Empty;
+
+        public string TopList { get; set; } = string.Empty;
         public event PropertyChangedEventHandler PropertyChanged;
         private List<Films> catalogSourse = new List<Films>();
         private List<string> genres = new List<string>();
@@ -96,11 +92,22 @@ namespace Kyrsovaya
         {
             this.UpadateSearch();
         }
-        
+
         private void StatistikaOpenWindow(object sender, RoutedEventArgs e)
         {
             Window statwin = new Statistika();
             statwin.Owner = this;
+            string List = "fdsfdfsdf";
+            //this.TopList.Clear();
+            //var ttt = 
+            //const char V = ")"+ "\r\n";
+            StringBuilder _Text = new StringBuilder();
+            (catalogSourse.Select(c => new { Name = c.Name, ViewCount = c.ViewCount, Year = c.Year}).OrderByDescending(b=> b.ViewCount).Select(v=> v.Name+"("+ v.Year + ") [просмотров - " + v.ViewCount+"]")).ToList().ForEach(c=> _Text.AppendLine(c));
+
+
+            this.TopList = _Text.ToString();
+            statwin.DataContext = this;
+            //statwin.top
             statwin.ShowDialog();
         }
 
@@ -111,22 +118,8 @@ namespace Kyrsovaya
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //private void RaisePropertyChanged<T>(Expression<Func<T>> propertyBeingChanged)
-        //{
-        //    if (propertyBeingChanged == null) throw new ArgumentNullException("propertyBeingChanged");
-        //    var memberExpression = propertyBeingChanged.Body as MemberExpression;
-        //    if (memberExpression == null) throw new ArgumentException("propertyBeingChanged");
-        //    String propertyName = memberExpression.Member.Name;
-        //    var tempPropertyChanged = PropertyChanged;
-        //    if (tempPropertyChanged != null)
-        //    {
-        //        tempPropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-        //}
 
 
-        //public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
@@ -135,14 +128,6 @@ namespace Kyrsovaya
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        //protected void RaisePropertyChanged(params string[] propertyNames)
-        //{
-        //    foreach (var name in propertyNames)
-        //    {
-        //        this.RaisePropertyChanged(name);
-        //    }
-        //}
 
         protected void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpresssion)
         {
@@ -213,6 +198,18 @@ namespace Kyrsovaya
             string name = (sender as Button).Content as string;
             this.SelectedGenres = name;
             this.UpadateSearch();
+        }
+
+        private void OpenFilm(object sender, MouseButtonEventArgs e)
+        {
+            string name = (sender as Label).Content as string;
+            Films selectedFilms = this.catalogSourse.Where(c => c.Name.Equals(name)).FirstOrDefault();
+            selectedFilms.ViewCount++;
+            Window FilmWindow = new ContentWindow();
+
+            FilmWindow.Owner = this;
+            FilmWindow.DataContext = selectedFilms;
+            FilmWindow.ShowDialog();
         }
     }
 }

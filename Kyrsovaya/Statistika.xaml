@@ -17,7 +17,9 @@
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
 
-            <TextBox Margin="60,45,60,20"  Grid.Column="1" Width="auto" ></TextBox>
+            <TextBox Margin="60,45,60,20"  Grid.Column="1" Width="auto" Text="{Binding TopList}" >
+                
+            </TextBox>
             
         </Grid>
         <Grid>
