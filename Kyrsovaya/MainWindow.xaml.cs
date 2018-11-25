@@ -74,14 +74,16 @@ namespace Kyrsovaya
         {
             //this.Catalog.Add(Catalog.First());
             this.Catalog.Clear();
-            var ff = catalogSourse.First();
-            var t = string.IsNullOrWhiteSpace(searchText) | ff.Name.Contains(searchText);
+            //var ff = catalogSourse.First();
+            //var t = string.IsNullOrWhiteSpace(searchText) | ff.Name.Contains(searchText);
             this.catalogSourse.Where(f =>
-
+            //1
             string.IsNullOrWhiteSpace(searchText) | 
             f.Name.Contains(searchText) |
             f.Description.ToLower().Contains(searchText.ToLower())
+            //2
             && (SelectedGenres.Equals(string.Empty) | f.Genre.Select(c=>c.ToLower()).Contains(SelectedGenres.ToLower()))
+            //3
             && (SelectedYears.Equals(string.Empty) | f.Year.ToString().Equals(SelectedYears))
 
             ).ToList().ForEach(c => Catalog.Add(c));
