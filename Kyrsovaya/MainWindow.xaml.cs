@@ -178,6 +178,7 @@ namespace Kyrsovaya
         {
             this.SelectedYears = string.Empty;
             this.SelectedGenres = string.Empty;
+            this.SearchText = string.Empty;
             this.UpadateSearch();
         }
 
