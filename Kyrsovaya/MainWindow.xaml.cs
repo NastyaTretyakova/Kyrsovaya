@@ -80,8 +80,8 @@ namespace Kyrsovaya
 
             string.IsNullOrWhiteSpace(searchText) | 
             f.Name.Contains(searchText) |
-            f.Description.Contains(searchText)
-            && (SelectedGenres.Equals(string.Empty) | f.Genre.Contains(SelectedGenres))
+            f.Description.ToLower().Contains(searchText.ToLower())
+            && (SelectedGenres.Equals(string.Empty) | f.Genre.Select(c=>c.ToLower()).Contains(SelectedGenres.ToLower()))
             && (SelectedYears.Equals(string.Empty) | f.Year.ToString().Equals(SelectedYears))
 
             ).ToList().ForEach(c => Catalog.Add(c));
@@ -174,14 +174,9 @@ namespace Kyrsovaya
             this.SelectedGenres = string.Empty;
         }
 
-        private void YearsCleanButton_Click(object sender, RoutedEventArgs e)
+        private void CleanButton_Click(object sender, RoutedEventArgs e)
         {
             this.SelectedYears = string.Empty;
-            this.UpadateSearch();
-        }
-
-        private void GenresCleanButton_Click(object sender, RoutedEventArgs e)
-        {
             this.SelectedGenres = string.Empty;
             this.UpadateSearch();
         }
@@ -203,6 +198,10 @@ namespace Kyrsovaya
             this.SearchText = string.Empty;
             this.UpadateSearch();
         }
+        private void UpdateSerach(object sender, System.Windows.Data.DataTransferEventArgs e)
+    {
+        this.UpadateSearch();
+    }
 
         private void OpenFilm(object sender, MouseButtonEventArgs e)
         {
@@ -216,4 +215,5 @@ namespace Kyrsovaya
             FilmWindow.ShowDialog();
         }
     }
-}
+
+    }
