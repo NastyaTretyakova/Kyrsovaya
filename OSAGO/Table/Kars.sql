@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Kars]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
