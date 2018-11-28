@@ -72,20 +72,30 @@ namespace Kyrsovaya
 
         public void UpadateSearch()
         {
-            //this.Catalog.Add(Catalog.First());
-            this.Catalog.Clear();
-            //var ff = catalogSourse.First();
-            //var t = string.IsNullOrWhiteSpace(searchText) | ff.Name.Contains(searchText);
+            this.Catalog.Clear(); //Очистка каталога,который мы показываем в области контента
+            //начинаем сортировку исходных данных
             this.catalogSourse.Where(f =>
-            //1
-            string.IsNullOrWhiteSpace(searchText) | 
-            f.Name.Contains(searchText) |
-            f.Description.ToLower().Contains(searchText.ToLower())
-            //2
-            && (SelectedGenres.Equals(string.Empty) | f.Genre.Select(c=>c.ToLower()).Contains(SelectedGenres.ToLower()))
-            //3
-            && (SelectedYears.Equals(string.Empty) | f.Year.ToString().Equals(SelectedYears))
 
+            //1 ищем соответствие по тексту, введенному в строку поиска
+            //если в поле поиска ничего не введенно, то ее не учитываем
+            string.IsNullOrWhiteSpace(searchText) | 
+            //ищем текст введенных в поле поиска в названии фильма
+            f.Name.Contains(searchText) |
+            //ищем текст введенных в поле поиска в описании фильма
+            f.Description.ToLower().Contains(searchText.ToLower())
+
+            //2 ищем соответствие по жанру,выбранному пользователем
+            //если жанр не выбран, то мы игнорируем его
+            && (SelectedGenres.Equals(string.Empty) |
+            //Сравниваем выбранный пользоватлем жанр с имеющимися в фильме жанрами
+            f.Genre.Select(c=>c.ToLower()).Contains(SelectedGenres.ToLower()))
+
+            //3 ищем соответствие по году,выбранному пользователем
+            //если год не выбран, то мы игнорируем его
+            && (SelectedYears.Equals(string.Empty) |
+            //Сравниваем выбранный пользоватлем год с имеющимися в фильме жанрами
+            f.Year.ToString().Equals(SelectedYears))
+            //Обьединяем результаты и добавляем их в каталог,который мы показываем в области контента
             ).ToList().ForEach(c => Catalog.Add(c));
         }
 
@@ -171,9 +181,9 @@ namespace Kyrsovaya
 
         private void SeachButton_Click(object sender, RoutedEventArgs e)
         {
-            this.UpadateSearch();
             this.SelectedYears = string.Empty;
             this.SelectedGenres = string.Empty;
+            this.UpadateSearch();
         }
 
         private void CleanButton_Click(object sender, RoutedEventArgs e)
